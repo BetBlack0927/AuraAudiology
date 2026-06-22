@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #17333b;
+  --color-teal: #176f73;
+  --color-teal-dark: #0e585d;
+  --color-mist: #eef8f7;
+  --color-sky: #eaf5f8;
+  --color-sand: #f8f6f1;
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+}
+
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #17333b;
+  font-family: var(--font-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #bce2df;
+  color: #17333b;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  outline-offset: 3px;
+}
+
+.section-shell {
+  width: min(1180px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #176f73;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.5rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.soft-shadow {
+  box-shadow: 0 22px 60px rgba(23, 51, 59, 0.09);
+}
+
+.field {
+  width: 100%;
+  border: 1px solid #d6e3e3;
+  border-radius: 0.75rem;
+  background: white;
+  padding: 0.85rem 1rem;
+  color: #17333b;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.field:focus {
+  border-color: #176f73;
+  box-shadow: 0 0 0 3px rgba(23, 111, 115, 0.12);
+  outline: none;
+}
+
+.field::placeholder {
+  color: #899da1;
+}
+
+@media (min-width: 640px) {
+  .section-shell {
+    width: min(1180px, calc(100% - 4rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
