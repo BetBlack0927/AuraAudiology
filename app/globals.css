@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #17333b;
-  --color-teal: #176f73;
-  --color-teal-dark: #0e585d;
-  --color-mist: #eef8f7;
-  --color-sky: #eaf5f8;
-  --color-sand: #f8f6f1;
+  --color-ivory: #faf8f3;
+  --color-cream: #f4efe5;
+  --color-navy: #101827;
+  --color-gold: #c8a96a;
+  --color-gold-dark: #a88745;
+  --color-muted: #6b665c;
+  --color-line: #e6ddcc;
+  --color-paper: #fffdf8;
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
 }
@@ -17,15 +19,15 @@
 
 body {
   margin: 0;
-  background: #fff;
-  color: #17333b;
+  background: #faf8f3;
+  color: #101827;
   font-family: var(--font-sans), sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: #bce2df;
-  color: #17333b;
+  background: #d9c48f;
+  color: #101827;
 }
 
 button,
@@ -45,7 +47,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  color: #176f73;
+  color: #a88745;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -60,27 +62,27 @@ textarea {
 }
 
 .soft-shadow {
-  box-shadow: 0 22px 60px rgba(23, 51, 59, 0.09);
+  box-shadow: 0 22px 70px rgba(16, 24, 39, 0.07);
 }
 
 .field {
   width: 100%;
-  border: 1px solid #d6e3e3;
-  border-radius: 0.75rem;
-  background: white;
+  border: 1px solid #e6ddcc;
+  border-radius: 0.9rem;
+  background: #fffdf8;
   padding: 0.85rem 1rem;
-  color: #17333b;
+  color: #101827;
   transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
 .field:focus {
-  border-color: #176f73;
-  box-shadow: 0 0 0 3px rgba(23, 111, 115, 0.12);
+  border-color: #c8a96a;
+  box-shadow: 0 0 0 3px rgba(200, 169, 106, 0.18);
   outline: none;
 }
 
 .field::placeholder {
-  color: #899da1;
+  color: #9d9689;
 }
 
 @media (min-width: 640px) {

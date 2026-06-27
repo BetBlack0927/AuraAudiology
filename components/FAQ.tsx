@@ -4,24 +4,56 @@ import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 const faqs = [
-  ["Do you accept insurance?", "Coverage varies by plan and service. Please contact us with your insurance information, and we can discuss available options before your visit."],
-  ["What areas do you serve?", "AuroAudiology provides mobile visits across New York. Availability and possible travel fees depend on your location, so reach out with your ZIP code for current service-area details."],
-  ["Can you visit nursing homes and assisted living communities?", "Yes. We coordinate with residents, families, and facility teams to make on-site hearing care comfortable and convenient."],
-  ["What happens during a home visit?", "Your visit is tailored to the service requested and may include a hearing evaluation, hearing-aid consultation, device check, cleaning, and personalized recommendations."],
-  ["How long does an appointment take?", "Most appointments take approximately 45–75 minutes, depending on the service and individual needs. We’ll provide a clearer estimate when confirming your visit."],
+  [
+    "Do you visit nursing homes?",
+    "Yes. AURA Audiology can coordinate mobile visits for residents in nursing homes and care communities, with appointment details confirmed in advance.",
+  ],
+  [
+    "Do you offer home visits?",
+    "Yes. Home visits are available for patients who prefer hearing care in a private, familiar setting.",
+  ],
+  [
+    "What areas do you serve?",
+    "AURA Audiology provides mobile audiology services in New York. Availability may vary by borough, location, and scheduling needs.",
+  ],
+  [
+    "Do you accept insurance?",
+    "Insurance and payment options may vary. Please contact AURA Audiology before booking to discuss your situation. This website does not guarantee insurance acceptance.",
+  ],
+  [
+    "How long does a visit take?",
+    "Visit length depends on the service needed, but many appointments take approximately 45 to 75 minutes. A clearer estimate can be provided when your appointment is confirmed.",
+  ],
+  [
+    "Is submitting the form a confirmed appointment?",
+    "No. Submitting the appointment request form does not confirm an appointment. AURA Audiology will contact you to confirm availability and next steps.",
+  ],
 ];
 
 export default function FAQ() {
   const [open, setOpen] = useState(0);
+
   return (
-    <div className="divide-y divide-ink/10 border-y border-ink/10">
+    <div className="divide-y divide-line border-y border-line">
       {faqs.map(([question, answer], index) => (
         <div key={question}>
-          <button onClick={() => setOpen(open === index ? -1 : index)} className="flex w-full items-center justify-between gap-6 py-6 text-left" aria-expanded={open === index}>
-            <span className="text-base font-bold sm:text-lg">{question}</span>
-            <ChevronDown className={`size-5 shrink-0 text-teal transition ${open === index ? "rotate-180" : ""}`} />
+          <button
+            onClick={() => setOpen(open === index ? -1 : index)}
+            className="flex w-full items-center justify-between gap-6 py-7 text-left"
+            aria-expanded={open === index}
+          >
+            <span className="font-serif text-2xl font-semibold leading-tight text-navy">
+              {question}
+            </span>
+            <ChevronDown
+              className={`size-5 shrink-0 text-gold-dark transition ${
+                open === index ? "rotate-180" : ""
+              }`}
+            />
           </button>
-          {open === index && <p className="max-w-3xl pb-6 pr-10 leading-relaxed text-ink/65">{answer}</p>}
+          {open === index && (
+            <p className="max-w-3xl pb-7 pr-10 leading-8 text-muted">{answer}</p>
+          )}
         </div>
       ))}
     </div>
