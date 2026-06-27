@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { contactInfo } from "@/lib/contact";
 import { Resend } from "resend";
 
 export const runtime = "nodejs";
@@ -103,10 +104,9 @@ export async function POST(request: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const toEmail =
-    process.env.AURA_APPOINTMENT_TO_EMAIL || process.env.RESEND_TO_EMAIL || "";
+  const toEmail = process.env.CONTACT_TO_EMAIL || contactInfo.email;
   const fromEmail =
-    process.env.AURA_FROM_EMAIL || "AURA Audiology <onboarding@resend.dev>";
+    process.env.CONTACT_FROM_EMAIL || `AURA Audiology <${contactInfo.email}>`;
 
   if (!apiKey || !toEmail) {
     console.warn("AURA Audiology appointment request received without Resend configuration.", appointment);

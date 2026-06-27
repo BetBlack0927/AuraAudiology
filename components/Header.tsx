@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { contactInfo } from "@/lib/contact";
 import { Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
 
@@ -94,7 +95,7 @@ export default function Header() {
               Request Appointment
             </a>
             <a
-              href="tel:+12125550148"
+              href={contactInfo.phoneHref}
               className="flex items-center justify-center gap-2 rounded-2xl border border-line px-4 py-3 font-bold text-navy"
             >
               <Phone className="size-4" /> Call Now

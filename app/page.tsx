@@ -1,6 +1,7 @@
 import BookingForm from "@/components/BookingForm";
 import FAQ from "@/components/FAQ";
 import Header from "@/components/Header";
+import { contactInfo } from "@/lib/contact";
 import { ArrowRight, Check, Phone } from "lucide-react";
 import Image from "next/image";
 
@@ -93,7 +94,7 @@ export default function HomePage() {
                 Request an Appointment <ArrowRight className="size-4" />
               </a>
               <a
-                href="tel:+12125550148"
+                href={contactInfo.phoneHref}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-line bg-paper px-7 py-4 font-bold text-navy transition hover:-translate-y-0.5 hover:border-gold/70"
               >
                 <Phone className="size-4" /> Call Now
@@ -281,10 +282,10 @@ export default function HomePage() {
               loved one, call directly and we will help you understand the next step.
             </p>
             <a
-              href="tel:+12125550148"
+              href={contactInfo.phoneHref}
               className="mt-8 inline-flex items-center gap-2 rounded-full border border-line px-5 py-3 font-bold text-navy transition hover:border-gold/70"
             >
-              <Phone className="size-4" /> (212) 555-0148
+              <Phone className="size-4" /> {contactInfo.phoneDisplay}
             </a>
           </div>
           <FAQ />
@@ -303,18 +304,20 @@ export default function HomePage() {
               availability, location, and service needs.
             </p>
             <div className="mt-10 space-y-5 border-y border-line py-7">
-              <a href="tel:+12125550148" className="block">
+              <a href={contactInfo.phoneHref} className="block">
                 <small className="text-xs font-bold uppercase tracking-[0.24em] text-gold-dark">
                   Phone
                 </small>
-                <strong className="mt-1 block text-xl text-navy">(212) 555-0148</strong>
+                <strong className="mt-1 block text-xl text-navy">
+                  {contactInfo.phoneDisplay}
+                </strong>
               </a>
-              <a href="mailto:hello@auraaudiology.com" className="block">
+              <a href={contactInfo.emailHref} className="block">
                 <small className="text-xs font-bold uppercase tracking-[0.24em] text-gold-dark">
                   Email
                 </small>
                 <strong className="mt-1 block text-xl text-navy">
-                  hello@auraaudiology.com
+                  {contactInfo.email}
                 </strong>
               </a>
               <div>
@@ -370,7 +373,18 @@ export default function HomePage() {
             </nav>
           </div>
           <div className="grid gap-4 text-xs leading-relaxed md:grid-cols-[.65fr_1.35fr]">
-            <p>© {new Date().getFullYear()} AURA Audiology. All rights reserved.</p>
+            <div>
+              <p>© {new Date().getFullYear()} AURA Audiology. All rights reserved.</p>
+              <p className="mt-2">
+                <a href={contactInfo.phoneHref} className="hover:text-white">
+                  {contactInfo.phoneDisplay}
+                </a>
+                <span className="mx-2 text-white/25">•</span>
+                <a href={contactInfo.emailHref} className="hover:text-white">
+                  {contactInfo.email}
+                </a>
+              </p>
+            </div>
             <p className="md:text-right">
               This website is for informational purposes only and does not replace
               medical advice. If you are experiencing a medical emergency, call 911.

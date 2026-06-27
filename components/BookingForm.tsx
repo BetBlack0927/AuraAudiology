@@ -103,7 +103,7 @@ export default function BookingForm() {
             type="tel"
             autoComplete="tel"
             required
-            placeholder="(212) 555-0000"
+            placeholder="(347) 280-3523"
           />
         </label>
         <label className="text-sm font-bold text-navy">
@@ -113,7 +113,7 @@ export default function BookingForm() {
             name="email"
             type="email"
             autoComplete="email"
-            placeholder="you@example.com"
+            placeholder="you@yourdomain.com"
           />
         </label>
         <label className="text-sm font-bold text-navy">
